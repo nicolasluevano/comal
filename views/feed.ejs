@@ -1,0 +1,55 @@
+<%- include('partials/logged-in-header') -%>
+  <!-- <div class="container">
+    <div class="row justify-content-center mt-5">
+      <ul class="row list-unstyled">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/post/<%= posts[i]._id%>">
+              <img class="img-fluid" src="<%= posts[i].image%>">
+            </a>
+          </li>
+        <% } %>
+        </ul>
+    </div>
+  </div> -->
+
+  <!-- <div class="container">
+    <% for(var i=0; i<posts.length; i++) {%>
+    <div class="card" style="width: 18rem;">
+      <img src="<%= posts[i].image%>" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title"><%= posts[i].title%></h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <span class="badge rounded-pill bg-primary"><%= posts[i].country%></span>
+        <span class="badge rounded-pill bg-secondary"><%= posts[i].dish%></span>
+        <a href="/post/<%= posts[i]._id%>" class="btn btn-primary">View Recipe</a>
+      </div>
+      <% } %>
+    </div>
+  </div> -->
+
+  <div class="container card-container">
+    <h1>Explore Recipes</h1>
+  <div class="row row-cols-1 row-cols-md-2 g-4">
+    <% for(var i=0; i<posts.length; i++) {%>
+    <div class="col">
+      <div class="card h-100">
+        <img src="<%= posts[i].image%>" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><%= posts[i].title%></h5>
+          <p class="card-text"><small class="text-muted">By: <%= userName[i]%></small></p>
+          <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <a href="/post/<%= posts[i]._id%>" class="btn btn-primary">View Recipe</a>
+        </div>
+        <div class="card-footer">
+          <span class="badge rounded-pill bg-primary"><%= posts[i].country%></span>
+          <span class="badge rounded-pill bg-secondary"><%= posts[i].dish%></span>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>
+
+
+<%- include('partials/footer') -%>

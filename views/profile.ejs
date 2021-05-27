@@ -1,0 +1,93 @@
+<%- include('partials/logged-in-header') -%>
+<div class="container card-container">
+  <div class="row mt-5">
+      <div class="col-6">
+          <div>
+              <p><strong>User Name</strong>: <%= user.userName %></p>
+              <p><strong>Email</strong>: <%= user.email %></p>
+              <!-- <a href="/logout" class="col-3 btn btn-primary">Logout</a> -->
+          </div>
+          <div class="mt-5">
+            <h2>Add a recipe</h2>
+            <form action="/post/createPost" enctype="multipart/form-data" method="POST">
+              <div class="mb-3">
+                  <label for="title" class="form-label">Recipe Name</label>
+                  <input type="text" class="form-control" id="title" name="title">
+              </div>
+              <div class="mb-3">
+              <label for="country" class="form-label">Where your recipe comes from</label>
+              <select class="form-select" aria-label="Default select example" id="country" name="country">
+                <option selected>Select Country</option>
+                <option value="Argentina">Argentina</option>
+                <option value="Bolivia">Bolivia</option>
+                <option value="Brazil">Brazil</option>
+                <option value="Chile">Chile</option>
+                <option value="Colombia">Colombia</option>
+                <option value="Costa Rica">Costa Rica</option>
+                <option value="Cuba">Cuba</option>
+                <option value="Domincan Republic">Dominican Republic</option>
+                <option value="Ecuador">Ecuador</option>
+                <option value="El Salvador">El Salvador</option>
+                <option value="Guatemala">Guatemala</option>
+                <option value="Honduras">Honduras</option>
+                <option value="México">México</option>
+                <option value="Nicaragua">Nicaragua</option>
+                <option value="Panamá">Panamá</option>
+                <option value="Paraguay">Paraguay</option>
+                <option value="Perú">Perú</option>
+                <option value="Puerto Rico">Puerto Rico</option>
+                <option value="Uruguay">Uruguay</option>
+                <option value="Venezuela">Venezuela</option>
+              </select>
+              </div>
+              <div class="mb-3">
+                <label for="basic-url" class="form-label">Dish Type</label>
+                <select class="form-select" aria-label="Default select example" id="dish" name="dish">
+                  <option selected>Please Select</option>
+                  <option value="Main Dish">Main Dish</option>
+                  <option value="Side Dish">Side Dish</option>
+                  <option value="Salsa">Salsa</option>
+                  <option value="Appetizer">Appetizer</option>
+                  <option value="Snack">Snack</option>
+                  <option value="Dessert">Dessert</option>
+                  <option value="Drink">Drink</option>
+                </select>
+                </div>
+              <div class="mb-3">
+                <label for="caption" class="form-label">Description</label>
+                <textarea class="form-control" id="caption" name="caption"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="ingredients" class="form-label">Ingredients</label>
+                <textarea class="form-control" id="ingredients" name="ingredients"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="directions" class="form-label">Directions</label>
+                <textarea class="form-control" id="directions" name="directions"></textarea>
+              </div>
+              <div class="mb-3">
+                <label for="imgUpload" class="form-label">Image</label>
+                <input type="file" class="form-control" id="imageUpload" name="file">
+              </div>
+              <button type="submit" class="btn btn-primary" value="Upload">Submit</button>
+            </form>
+          </div>
+      </div>
+      <div class="col-6">
+        <ul class="row list-unstyled">
+        <% for(var i=0; i<posts.length; i++) {%>
+          <li class="col-6 justify-content-between mt-5">
+            <a href="/post/<%= posts[i]._id%>">
+              <img class="img-fluid" src="<%= posts[i].image%>">
+            </a>
+          </li>
+        <% } %>
+        </ul>
+        <div class="row justify-content-center mt-5">
+          <a class="btn btn-primary" href="/feed">Return to Feed</a>
+        </div>  
+      </div>  
+    </div>
+  </div>
+</div>
+<!-- <%- include('partials/footer') -%> -->

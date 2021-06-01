@@ -18,11 +18,11 @@ const PostSchema = new mongoose.Schema({
     require: true,
   },
   ingredients: {
-    type: String,
+    type: [String],
     require: true,
   },
   directions: {
-    type: String,
+    type: [String],
     require: true,
   },
   cloudinaryId: {
@@ -34,7 +34,11 @@ const PostSchema = new mongoose.Schema({
     required: true,
   },
   likes: {
-    type: Number,
+    type: Array,
+    required: true,
+  },
+  bookmarks: {
+    type: Array,
     required: true,
   },
   user: {

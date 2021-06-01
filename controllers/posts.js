@@ -54,31 +54,104 @@ module.exports = {
         caption: req.body.caption,
         country: req.body.country,
         dish: req.body.dish,
-        ingredients: req.body.ingredients,
-        directions: req.body.directions,
+        ingredients: req.body.ingredients.trim().split('\n'),
+        directions: req.body.directions.trim().split('\n'),
         likes: 0,
         user: req.user.id,
       });
       console.log("Post has been added!");
-      res.redirect("/profile");
+      res.redirect("/my-recipes");
     } catch (err) {
       console.log(err);
     }
   },
-  likePost: async (req, res) => {
-    try {
-      await Post.findOneAndUpdate(
-        { _id: req.params.id },
-        {
-          $inc: { likes: 1 },
+  //Oriinal liked post logic
+  // likePost: async (req, res) => {
+  //   try {
+  //     await Post.findOneAndUpdate(
+  //       { _id: req.params.id },
+  //       {
+  //         $inc: { likes: 1 },
+  //       }
+  //     );
+  //     console.log("Likes +1");
+  //     res.redirect(`/post/${req.params.id}`);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // },
+  likePost: async (req, res)=>{
+    var liked = false
+    try{
+      var post = await Post.findById({_id:req.params.id})
+      liked = (post.likes.includes(req.user.id))
+    } catch(err){
+    }
+    //if already liked we will remove user from likes array
+    if(liked){
+      try{
+        await Post.findOneAndUpdate({_id:req.params.id},
+          {
+            $pull : {'likes' : req.user.id}
+          })
+          
+          console.log('Removed user from likes array')
+          res.redirect('back')
+        }catch(err){
+          console.log(err)
         }
-      );
-      console.log("Likes +1");
-      res.redirect(`/post/${req.params.id}`);
-    } catch (err) {
-      console.log(err);
-    }
-  },
+      }
+      //else add user to like array
+      else{
+        try{
+          await Post.findOneAndUpdate({_id:req.params.id},
+            {
+              $addToSet : {'likes' : req.user.id}
+            })
+            
+            console.log('Added user to likes array')
+            res.redirect(`back`)
+        }catch(err){
+            console.log(err)
+        }
+      }
+    },
+    bookmarkPost: async (req, res)=>{
+      var bookmarked = false
+      try{
+        var post = await Post.findById({_id:req.params.id})
+        bookmarked = (post.bookmarks.includes(req.user.id))
+      } catch(err){
+      }
+      //if already bookmarked we will remove user from likes array
+      if(bookmarked){
+        try{
+          await Post.findOneAndUpdate({_id:req.params.id},
+            {
+              $pull : {'bookmarks' : req.user.id}
+            })
+            
+            console.log('Removed user from bookmarks array')
+            res.redirect('back')
+          }catch(err){
+            console.log(err)
+          }
+        }
+        //else add user to bookmarked array
+        else{
+          try{
+            await Post.findOneAndUpdate({_id:req.params.id},
+              {
+                $addToSet : {'bookmarks' : req.user.id}
+              })
+              
+              console.log('Added user to bookmarks array')
+              res.redirect(`back`)
+          }catch(err){
+              console.log(err)
+          }
+        }
+      },
   deletePost: async (req, res) => {
     try {
       // Find post by id

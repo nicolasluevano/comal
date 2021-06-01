@@ -4,6 +4,12 @@ body {
     font-size: 1rem;
 }
 
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
 .card-container{
   margin-top: 10rem;  
 }
@@ -32,4 +38,17 @@ body {
 .card-img-top{
     width: 100%;
     height: 80%;
+}
+
+.btn-liked{
+    color: #f03566;
+  }
+
+.btn-bookmarked{
+    background: #ffff;
+}
+
+.btn-sign-in{
+    background-color: #e94135;
+    color: #ffff;
 }

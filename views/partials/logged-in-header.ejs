@@ -26,7 +26,8 @@
     />
     <link rel="stylesheet" href="/css/style.css" />
   </head>
-  <body>
+  <body class="d-flex h-100">
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: #ffff">
         <div class="container">
           <a class="navbar-brand" href="/feed">
@@ -40,8 +41,8 @@
               <a class="btn btn-dark btn-nav" href="/signup" role="button">Sign up</a> -->
               <span class="navbar-text">Bienvenido, <%= user.userName %></span>
               <a class="nav-link active" aria-current="page" href="/feed">Explore</a>
-              <a class="nav-link" href="/profile">My Recipes</a>
-              <a class="nav-link" href="/feed">Add Recipe</a>
+              <a class="nav-link" href="/my-recipes">My Recipes</a>
+              <a class="nav-link" href="/profile">Add Recipe</a>
               <!-- <a class="btn btn-primary" href="/feed" role="button"><i class="bi bi-house-door-fill"></i></a> -->
               <!-- <a class="btn btn-primary" href="/profile" role="button"><i class="bi bi-person-fill"></i></a> -->
               <a href="/logout" class="btn btn-dark btn-nav" role="button">Logout</a>

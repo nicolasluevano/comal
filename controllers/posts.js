@@ -19,6 +19,14 @@ module.exports = {
       console.log(err);
     }
   },
+  getBookmarks: async (req, res) => {
+    try {
+      const posts = await Post.find({ user: req.user.id });
+      res.render("favorite-recipes.ejs", { posts: posts, user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getFeed: async (req,res)=>{
     try{
       const posts = await Post.find()

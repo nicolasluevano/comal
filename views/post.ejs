@@ -1,6 +1,6 @@
 <%- include('partials/logged-in-header') -%>
 <div class="container card-container">
-  <div class="row justify-content-center mt-5">
+  <!-- <div class="row justify-content-center mt-5">
     <div class="col-6">
       <h2><%= post.title %></h2>
       <p><%= post.caption %></p>
@@ -47,15 +47,69 @@
         <% } %>
         </ol>
       <!-- <p><%= post.directions %></p> -->
-    </div>
+    <!-- </div>
     <div class="col-6 mt-5">
       <a class="btn btn-primary" href="/profile">Return to Profile</a>
       <a class="btn btn-primary" href="/feed">Return to Feed</a>
     </div>
-  </div>
+  </div> --> 
+
+
+  
+    <!-- <h1><%= post.title %></h1>
+    <div class="row mt-5">
+      <div class="col-6">
+        <img src="<%= post.image%>" class="img-fluid" alt="Responsive image">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-1">
+        <h3>Recipe</h3>
+        <h2>Ingredients</h2>
+        <ul class="list-group">
+        <% for(var i=0; i<post.ingredients.length; i++) {%>
+            <li class=""><%= post.ingredients[i] %></li>
+            <% } %>
+          </ul>
+        <h2>Directions</h2>
+        <ol class="list-group list-group-numbered">
+          <% for(var i=0; i<post.directions.length; i++) {%>
+          <li class=""><%= post.directions[i] %></li>
+          <% } %>
+        </ol>
+      </div>
+    </div> -->
+ 
+    <div class="row">
+      <h1><%= post.title %></h1>
+      <p><%= post.caption %></p>
+      <p>By: <%= user.User %></p>
+      <div class="col-md-8">
+        <img src="<%= post.image%>" class="img-fluid" alt="Responsive image">
+      </div>
+      <div class="col-6 col-md-4">
+        <h3 class="display-4">Recipe</h3>
+        <h2>Ingredients</h2>
+        <ul class="list-unstyled">
+        <% for(var i=0; i<post.ingredients.length; i++) {%>
+            <li class="p-1 g-2"><%= post.ingredients[i] %></li>
+            <% } %>
+          </ul>
+          <h2>Directions</h2>
+          <ol class="list-group list-group-numbered">
+            <% for(var i=0; i<post.directions.length; i++) {%>
+            <li class="p-1"><%= post.directions[i] %></li>
+            <% } %>
+          </ol>
+      </div>
+    </div>
+
+  
+  
+
 </div>
 
-<div class="container">
+<!-- <div class="container">
   <div class="card" style="width: 50rem;">
     <h3 class="card-title"><%= post.title %></h3>
     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
@@ -72,6 +126,6 @@
       <a href="#" class="card-link">Another link</a>
     </div>
   </div>
-  </div>
+  </div> -->
 
 <%- include('partials/footer') -%>

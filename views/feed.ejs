@@ -37,7 +37,7 @@
         <img src="<%= posts[i].image%>" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title"><%= posts[i].title%></h5>
-          <p class="card-text"><i class="bi bi-heart"></i><%= posts[i].likes.length - 1 %></p>
+          <p class="card-text"><i class="px-1 bi bi-heart"></i><%= posts[i].likes.length - 1 %></p>
           <p class="card-text"><small class="text-muted">By: <%= userName[i]%></small></p>
           <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
           <a href="/post/<%= posts[i]._id%>" class="btn btn-primary">View Recipe</a>

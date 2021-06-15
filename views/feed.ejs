@@ -40,7 +40,7 @@
           <p class="card-text"><i class="px-1 bi bi-heart"></i><%= posts[i].likes.length - 1 %></p>
           <p class="card-text"><small class="text-muted">By: <%= userName[i]%></small></p>
           <p class="card-text"><%= posts[i].caption %></p>
-          <a href="/post/<%= posts[i]._id%>" class="btn btn-primary">View Recipe</a>
+          <a href="/post/<%= posts[i]._id%>" class="btn btn-outline-primary">View Recipe</a>
         </div>
         <div class="card-footer">
           <span class="badge bg-primary"><%= posts[i].country%></span>

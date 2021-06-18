@@ -3,7 +3,8 @@ Write a short sentence or two about this project and what it does. Be sure to in
 
 **Link to project:** https://comal.herokuapp.com/
 
-![alt tag](http://placecorgi.com/1200/650)
+![image](https://user-images.githubusercontent.com/64442298/122502939-66be3c80-cfac-11eb-82cd-c5c07d2b3a5e.png)
+
 
 ## How It's Made:
 

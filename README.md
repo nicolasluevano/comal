@@ -9,6 +9,9 @@
 A place for Latinx families to document, share, and discover family recipes. -->
 
 **Link to project:** https://comal.herokuapp.com/
+**Demo User**
+email: tester1234@gmail.com
+password: tester1234
 
 ![image](https://user-images.githubusercontent.com/64442298/122502939-66be3c80-cfac-11eb-82cd-c5c07d2b3a5e.png)
 

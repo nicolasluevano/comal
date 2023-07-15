@@ -8,7 +8,7 @@
 # Comal - Latinx stories told through the lens of food
 A place for Latinx families to document, share, and discover family recipes. -->
 
-**Link to project:** [https://comal.cyclic.app/](https://comal.cyclic.app) <br>
+**Link to project:** https://comal.cyclic.app/ <br>
 **Demo User** <br>
 email: tester1234@gmail.com <br>
 password: tester1234
